@@ -1,0 +1,38 @@
+﻿<Window x:Class="Virtual_Wallet.Views.ZaposleniMenu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Virtual_Wallet.Views"
+        xmlns:uc = "clr-namespace:Virtual_Wallet.Views.UserControls"
+        mc:Ignorable="d"
+        Height="600" Width="800" WindowState="Maximized">
+    <Grid x:Name="zaposleniMenuGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="5*"/>
+        </Grid.RowDefinitions>
+
+        <DockPanel x:Name="dpZaposleniImage" Grid.Row="0" Grid.Column="0" Style="{DynamicResource dpTemplateStyle3}">
+            <Image Source="" Margin="10"></Image>
+        </DockPanel>
+
+        <DockPanel x:Name="dpZaposleniSideBar" Grid.Row="1" Grid.Column="0" Style="{DynamicResource dpTemplateStyle3}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" LastChildFill="True">
+            <uc:NavSideBarEmployeeUC/>
+        </DockPanel>
+
+        <DockPanel x:Name="dpZaposleniHeader" Grid.Row="0" Grid.Column="1" Style="{DynamicResource dpTemplateStyle3}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
+            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="56" >Virtual Wallet</TextBlock>
+        </DockPanel>
+
+        <DockPanel x:Name="dpZaposleniFrame" Grid.Row="1" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <Frame x:Name="ZaposleniMenuContainer" NavigationUIVisibility="Automatic"/>
+        </DockPanel>
+
+    </Grid>
+
+</Window>

@@ -1,0 +1,61 @@
+﻿<Page x:Class="Virtual_Wallet.Views.Pages.PodsjetnikPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Virtual_Wallet.Views.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="1000"
+      Title="PodsjetnikPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="12*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="4*"/>
+        </Grid.RowDefinitions>
+
+        <GroupBox x:Name="gbPodsjetnik" Grid.Row="0" Header="Podsjetnik" FontSize="24" 
+                  Margin="10,10,10,10" BorderThickness="3" BorderBrush="Black" >
+
+            <DataGrid x:Name = "dgPodsjetnik" AlternatingRowBackground = "LightBlue" 
+                      SelectionMode="Single" AlternationCount = "2" AutoGenerateColumns = "False" FontSize="24" 
+                      IsReadOnly="False" Margin="5,5,5,0"
+                      CanUserAddRows="False" CanUserResizeRows="False" SelectionChanged="dgPodsjetnik_SelectionChanged" >
+
+                <DataGrid.Columns >
+                    <DataGridTextColumn Header = "Opis" Binding = "{Binding Opis}" Width="660" IsReadOnly="True"/>
+                    <DataGridTextColumn Header = "Od" Binding = "{Binding DatumOd, StringFormat='yyyy-MM-dd'}" Width="160" IsReadOnly="True"/>
+                    <DataGridTextColumn Header = "Do" Binding = "{Binding DatumDo, StringFormat='yyyy-MM-dd'}" Width="160" IsReadOnly="True"/>
+                    <DataGridCheckBoxColumn Header = "Završeno" Binding = "{Binding Zavrseno}" Width="120" />
+                </DataGrid.Columns>
+
+            </DataGrid>
+        </GroupBox>
+
+        <DockPanel x:Name="spPodsjetnikButtons" Grid.Row="1" Margin="10,0,10,0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                <Button x:Name="btnDodaj" Margin="10,10,10,10" Height="50" Width="180" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btnDodaj_Click">Dodaj novu stavku</Button>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Stretch" Width="300">
+                
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button x:Name="btnObrisi" Margin="10,10,10,10" Height="50" Width="120" FontSize="20" HorizontalAlignment="Right" VerticalAlignment="Top" Click="btnObrisi_Click">Izbriši</Button>
+                <Button x:Name="btnAzuriraj" Margin="10,10,10,10" Height="50" Width="120" FontSize="20" HorizontalAlignment="Right" VerticalAlignment="Top" Click="btnAzuriraj_Click">Ažuriraj</Button>
+            </StackPanel>
+        </DockPanel>
+        <StackPanel x:Name="spDodajNovuStavku" Grid.Row="2" Visibility="Hidden">
+            <StackPanel Orientation="Horizontal" Margin="10,10,10,10">
+                <Label FontSize="20">Opis:</Label>
+                <TextBox x:Name="tbOpis" Width="1070" FontSize="20" BorderBrush="Black" BorderThickness="3"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10,0,10,10">
+                <Label FontSize="20">Datum od:</Label>
+                <DatePicker x:Name="dtpDatumOd" FontSize="20" Width="160" SelectedDateFormat="Short" BorderBrush="Black" BorderThickness="3"></DatePicker>
+                <Label FontSize="20" Margin="50,0,0,0">Datum do:</Label>
+                <DatePicker x:Name="dtpDatumDo" FontSize="20" Width="160" SelectedDateFormat="Short" BorderBrush="Black" BorderThickness="3"></DatePicker>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

@@ -1,0 +1,63 @@
+﻿<Page x:Class="Virtual_Wallet.Views.Pages.BudzetPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Virtual_Wallet.Views.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="800"
+      Title="BudzetPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <GroupBox x:Name="gbMjesecniBudzet" Grid.Row="0" Header="Budžet" FontSize="20" 
+                  Margin="10,10,10,10" BorderThickness="3" BorderBrush="Black" >
+
+            <DataGrid x:Name = "dgBudzeti" AlternatingRowBackground = "LightBlue" 
+                      SelectionMode="Single" AlternationCount = "2" AutoGenerateColumns = "False" FontSize="20" 
+                      IsReadOnly="False" Margin="5,5,5,0"
+                      CanUserAddRows="True" CanUserResizeRows="False" SelectionChanged="dgBudzeti_SelectionChanged" >
+
+                <DataGrid.Columns >
+                    <DataGridTextColumn Header = "Od" Binding = "{Binding DatumOd, StringFormat='yyyy-MM-dd'}" Width="160" IsReadOnly="False"/>
+                    <DataGridTextColumn Header = "Do" Binding = "{Binding DatumDo, StringFormat='yyyy-MM-dd'}" Width="160" IsReadOnly="False"/>
+                    <DataGridTextColumn Header = "Predviđeni Iznos" Binding = "{Binding PredvidjeniIznos}" Width="260" IsReadOnly="false"/>
+                    <DataGridTextColumn Header = "Trenutni Iznos" Binding = "{Binding TrenutniIznos}" Width="260" IsReadOnly="false"/>
+                </DataGrid.Columns>
+
+            </DataGrid>
+        </GroupBox>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" >
+            <Button x:Name="btnPrikaziStavke" Margin="10,10,10,10" Height="36" Width="200" FontSize="20" Click="btnPrikaziStavke_Click">Prikaži stavke budžeta</Button>
+            <Button x:Name="btnDodajNoviBudzet" Margin="10,10,10,10" Height="36" Width="180" FontSize="20" Click="btnDodajNoviBudzet_Click">Dodaj novi budžet</Button>
+            <Button x:Name="btnAzurirajBudzet" Margin="10,10,10,10" Height="36" Width="180" FontSize="20" Click="btnAzurirajBudzet_Click">Ažuriraj budžet</Button>
+        </StackPanel>
+        <GroupBox x:Name="gbStavkeBudzeta" Grid.Row="2" Header="Stavke budžeta" FontSize="20" 
+                  Margin="10,10,10,10" BorderThickness="3" BorderBrush="Black" >
+
+            <DataGrid x:Name = "dgStavkeBudzet" AlternatingRowBackground = "LightBlue" 
+                      SelectionMode="Single" AlternationCount = "2" AutoGenerateColumns = "False" FontSize="20" 
+                      IsReadOnly="False" Margin="5,5,5,0"
+                      CanUserAddRows="false" CanUserResizeRows="False" SelectionChanged="dgBudzet_SelectionChanged" >
+
+                <DataGrid.Columns >
+                    <DataGridTextColumn Header = "Naziv" Binding = "{Binding KategorijaStavkeNaziv}" Width="300" IsReadOnly="False"/>
+                    <DataGridTextColumn Header = "Predviđeni Iznos" Binding = "{Binding PredvidjeniIznos}" Width="220" IsReadOnly="False"/>
+                    <DataGridTextColumn Header = "Trenutni Iznos" Binding = "{Binding TrenutniIznos}" Width="220" IsReadOnly="False"/>
+                    <DataGridTextColumn Header = "Opis" Binding = "{Binding Opis}" Width="350" IsReadOnly="False"/>
+                </DataGrid.Columns>
+
+            </DataGrid>
+        </GroupBox>
+        <StackPanel Grid.Row="3" Orientation="Horizontal" >
+            <Button x:Name="btnStavkaDodaj" Margin="10,10,10,10" Height="36" Width="180" FontSize="20" Click="btnStavkaDodaj_Click">Dodaj novu stavku</Button>
+            <Button x:Name="btnStavkaAzuriraj" Margin="10,10,10,10" Height="36" Width="200" FontSize="20" Click="btnStavkaAzuriraj_Click">Ažuriraj stanje stavke</Button>
+            <Button x:Name="btnStavkaIzbrisi" Margin="10,10,10,10" Height="36" Width="180" FontSize="20" Click="btnStavkaIzbrisi_Click">Izbriši stavku</Button>
+        </StackPanel>
+    </Grid>
+</Page>
